@@ -1,0 +1,46 @@
+<div class="layout__container">
+  <div class="left__container">
+    <mat-card>
+      <mat-card-title> Filters </mat-card-title>
+      <!--Categories-->
+      <mat-card-subtitle>Categories</mat-card-subtitle>
+      <mat-selection-list
+        #categories
+        (selectionChange)="onGroupsChange(categories.selectedOptions.selected)"
+      >
+        <mat-list-option
+          *ngFor="let category of categoryTypes"
+          [value]="category"
+        >
+          {{ category.Name }}
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-card-subtitle>Filters</mat-card-subtitle>
+      <!--Categories-->
+      <button mat-button class="filter-button" (click)="onFilter()">
+        Filter
+      </button>
+    </mat-card>
+  </div>
+  <div class="main__container">
+    <mat-card class="mat-card_main">
+      <mat-card-title color="Primary"> title1 </mat-card-title>
+      <!--edit delete-->
+      <mat-card-subtitle *ngIf="isModerator">
+        <button mat-mini-fab>
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-mini-fab>
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-card-subtitle>
+      <!--edit delete-->
+      <img
+        mat-card-image
+        src="https://pngimg.com/d/boxing_gloves_PNG10490.png"
+      />
+      <mat-card-content> content1 </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="right__container"></div>
+</div>

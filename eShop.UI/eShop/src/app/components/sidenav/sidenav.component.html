@@ -1,0 +1,14 @@
+<mat-nav-list color="Primary">
+  <a mat-list-item (click)="onToggleClose()">
+    <mat-icon>home</mat-icon>
+    <span> Home </span>
+  </a>
+  <a mat-list-item (click)="onToggleClose()">
+    <mat-icon>shopping_cart</mat-icon>
+    <span> Cart </span>
+  </a>
+  <a mat-list-item (click)="logout(); onToggleClose()">
+    <mat-icon>logout</mat-icon>
+    <span>Logout</span>
+  </a>
+</mat-nav-list>

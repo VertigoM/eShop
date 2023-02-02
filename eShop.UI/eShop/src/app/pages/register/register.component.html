@@ -1,0 +1,70 @@
+<mat-card class="main__container">
+  <mat-card-header>
+    <mat-card-title> Register </mat-card-title>
+  </mat-card-header>
+  <mat-card-actions class="register-content__container">
+    <!-- #register_form -->
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Email</mat-label>
+        <input type="text" matInput formControlName="email" />
+      </mat-form-field>
+      <p>
+        Password must contain a non-alphanumeric character, a number, and an
+        uppercase letter.
+      </p>
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Password</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="password"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria_label]="'Hide password'"
+          [attr.aria_pressed]="hide"
+        >
+          <mat-icon>
+            {{ hide ? "visibility_off" : "visibility" }}
+          </mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="mat-form-field">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="confirmPassword"
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria_label]="'Hide password'"
+          [attr.aria_pressed]="hide"
+        >
+          <mat-icon>
+            {{ hide ? "visibility_off" : "visibility" }}
+          </mat-icon>
+        </button>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        [disabled]="loading"
+        class="mat-raised-button"
+        color="primary"
+      >
+        Register
+      </button>
+      <!-- #error -->
+      <div *ngIf="errorMessage">{{ errorMessage }}</div>
+      <!-- error -->
+    </form>
+    <!-- register_form -->
+  </mat-card-actions>
+</mat-card>
